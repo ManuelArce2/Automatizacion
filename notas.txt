@@ -4,18 +4,9 @@ git add .
 git commit -m "first commit"
 git branch -M main
 git remote add origin https://github.com/ManuelRios1996/Automatizacion.git
-git push -u origin maini
+git push -u origin main
 
 
 #crear archivo README.md
 
-#crear archivo .gitignore
-#crear archivo requirements.txt
-#crear archivo app.py
-#crear archivo dockerfile
-#crear archivo notas.txt
-# crear imagen docker
-# ejecutar contenedor docker
-
-# crear archivo .env
 # 
