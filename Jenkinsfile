@@ -26,7 +26,7 @@ pipeline {
             stage('Push'){
                 steps{
                     script{
-                        docker.withRegistry('https://index.docker.io/v1/', 'docker-hu') {
+                        docker.withRegistry('https://index.docker.io/v1/', 'docker-hub-credentials') {
                             dockerImage.push('latest')
                         }
                     }
@@ -37,6 +37,10 @@ pipeline {
                     }
                     failure{
                         echo 'Build and push failed error de creacion de la imagen'
+                        mail to: 'jmanuel2101@gmail.com', 
+                        from: 'jmanuel2101@gmail.com',
+                        subject: "Build and push failed ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                        body: "Build and push failed error de creacion de la imagen ${env.JOB_NAME} #${env.BUILD_NUMBER}"
                     }
 
                 }
