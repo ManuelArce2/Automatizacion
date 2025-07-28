@@ -31,6 +31,15 @@ pipeline {
                         }
                     }
                 }
+                post {
+                    success{
+                        echo 'Build and push successful'
+                    }
+                    failure{
+                        echo 'Build and push failed'
+                    }
+
+                }
             }
         }
     }
