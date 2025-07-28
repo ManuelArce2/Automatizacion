@@ -16,6 +16,7 @@ pipeline {
 
             }
             stage('Build'){
+                bat 'echo "%DOCKER_IMAGE%"'
                 steps{
                     script{
                         docker.build(DOCKER_IMAGE) 
