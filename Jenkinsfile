@@ -16,11 +16,19 @@ pipeline {
 
             }
             stage('Build'){
-                bat 'echo "%DOCKER_IMAGE%"'
                 steps{
                     script{
-                        docker.build(DOCKER_IMAGE) 
+                        dockerImage = docker.build(DOCKER_IMAGE) 
                         
+                    }
+                }
+            }
+            stage('Push'){
+                steps{
+                    script{
+                        docker.withRegistry('https://hub.docker.com', 'docker-hub-credentials') {
+                            dockerImage.push('latest')
+                        }
                     }
                 }
             }
