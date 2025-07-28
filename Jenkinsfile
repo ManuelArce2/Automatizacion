@@ -4,6 +4,10 @@ pipeline {
     triggers {
         githubPush()
     }
+    
+    environment{
+        DOCKER_IMAGE = 'man2101/automatizacion'
+    }
 
     stages{
         stage('Checkout'){
@@ -13,7 +17,10 @@ pipeline {
             }
             stage('Build'){
                 steps{
-                    bat 'echo "Hello World bulding the app"'
+                    script{
+                        docker.build(DOCKER_IMAGE) 
+                        
+                    }
                 }
             }
         }
