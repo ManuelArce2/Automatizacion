@@ -36,7 +36,7 @@ pipeline {
                         echo 'Build and push successful'
                     }
                     failure{
-                        echo 'Build and push failed'
+                        echo 'Build and push failed error de creacion de la imagen'
                     }
 
                 }
