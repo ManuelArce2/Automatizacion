@@ -2,21 +2,19 @@ pipeline {
     agent any
     
     triggers {
-        gitlabPush()
+        githubPush()
     }
 
     stages{
-        stages('checkout'){
-            steps{
-                git branch: 'main',
-                credentialsId: 'gitlab',
-                url: 'https://github.com/ManuelArce2/Automatizacion.git'
+        stage('Checkout'){
+            steps{ git branch: 'main', url: 'https://github.com/ManuelArce2/Automatizacion.git'
             }
-            stage('build'){
+
+            }
+            stage('Build'){
                 steps{
                     bat 'echo "Hello World bulding the app"'
                 }
             }
         }
     }
-}
