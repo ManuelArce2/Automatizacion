@@ -14,7 +14,7 @@ pipeline {
             }
             stage('build'){
                 steps{
-                    sh 'echo "Hello World bulding the app"'
+                    bat 'echo "Hello World bulding the app"'
                 }
             }
         }
